@@ -43,8 +43,7 @@ class TestTrello:
                 assert True
                 TestTrello.logger.info(" Navigated to Trello Login page successfully")
             else:
-                take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)
-                # TestTrello.driver.save_screenshot(".\\Screenshots\\"+"screenshot_"+inspect.currentframe().f_code.co_name+exp_datetime+"_error.png")
+                take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)                
                 assert False
         except Exception as e:
             print("Exception occurred - "+str(e))
@@ -61,6 +60,7 @@ class TestTrello:
             self.ObjLP.set_password(keyring.get_password("testTrello", "Avinash"))
             self.ObjLP.click_login_submit()
         except Exception as e:
+            take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)
             print("Exception occurred - "+str(e))
 
     def test_landing_trello(self):
@@ -78,6 +78,7 @@ class TestTrello:
             self.ObjLanding.click_createboard_button()
             # self.ObjLanding.click_available_board()
         except Exception as e:
+            take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)
             print("Exception occurred - "+str(e))
 
     def test_board_trello(self):
@@ -128,6 +129,7 @@ class TestTrello:
             except Exception as e:
                 print("Exception occurred 3 - "+str(e))
         except Exception as e:
+            take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)
             print("Exception occurred - "+str(e))
 
     def test_card_trello(self):
@@ -147,6 +149,7 @@ class TestTrello:
             self.ObjCP.click_saveCard_button()
             self.ObjCP.click_closecrad_button()
         except Exception as e:
+            take_screenshot(TestTrello.driver,inspect.currentframe().f_code.co_name)
             print("Exception occurred - "+str(e))
 
 
